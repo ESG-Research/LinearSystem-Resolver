@@ -1,8 +1,8 @@
 # Linear system resolver based on Gaussian Elimination algorithm
-
+# This resolver built by 4 Operations and 3 Functions
 import numpy as np
 
-
+###### Introduce the 4 Operations
 def swap_rows(M, row_index_1, row_index_2):
     """
     Swap rows in the given matrix.
@@ -96,8 +96,8 @@ def augmented_matrix(A, B):
     return augmented_M
 
 
-
-###### Row echelon function
+###### Introduce the 3 Functions
+###### Row Echelon Function
 def row_echelon_form(A, B):
     """
     Utilizes elementary row operations to transform a given set of matrices, 
@@ -234,8 +234,7 @@ def back_substitution(M):
     
 
 
-###### Gaussian Elimination Function
-
+###### Gaussian Elimination Function (combine the Row Ehelon Function and the Back Substitution Function)
 def gaussian_elimination(A, B):
     """
     Solve a linear system represented by an augmented matrix using the Gaussian elimination method.
@@ -247,8 +246,6 @@ def gaussian_elimination(A, B):
     Returns:
     numpy.array or str: The solution vector if a unique solution exists, or a string indicating the type of solution.
     """
-
-    ### START CODE HERE ###
 
     # Get the matrix in row echelon form
     row_echelon_M = row_echelon_form(A, B)
@@ -264,7 +261,7 @@ def gaussian_elimination(A, B):
 
 
 
-###### The Solver
+###### The Resolver 
 from utils import string_to_augmented_matrix
 
 equations = """
@@ -274,7 +271,7 @@ equations = """
 13*x + 14*y + 15*w +16*z = 23
 """
 
-###1,2,3...23 only represent coefficient of each variable
+### 1,2,3...23 only represent coefficient of each variable
 variables, A, B = string_to_augmented_matrix(equations)
 
 sols = gaussian_elimination(A, B)
@@ -286,4 +283,4 @@ else:
     print(sols)
 
 
-### Run such Gaussian elimination algorithm based linear system solver by Replacing the coefficients and constants in the above equational system
+### Run such Gaussian Elimination algorithm based linear system resolver by Replacing the coefficients and constants in the above equational system.
